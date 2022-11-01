@@ -13,27 +13,27 @@ public class Board
     public void DisplayGameBoard()
     {
         // Setup each row in the board
-        GameBoard[0] = new char[3];
-        GameBoard[1] = new char[3];
-        GameBoard[2] = new char[3];
-        Console.WriteLine("---------------------");
+        GameBoard[0] = new char[3]; // Top row
+        GameBoard[1] = new char[3]; // Middle row
+        GameBoard[2] = new char[3]; // Bottom row
+        Console.WriteLine("---------------");
         foreach (var item in GameBoard[0])
         {
-            Console.Write("| Top |");
+            Console.Write("|   |");
         }
         Console.WriteLine();
-        Console.WriteLine("---------------------"); // Drop down
+        Console.WriteLine("---------------"); // Drop down
         foreach (var item in GameBoard[1])
         {
-            Console.Write("| Mid |");
+            Console.Write("|   |");
         }
         Console.WriteLine();
-        Console.WriteLine("---------------------"); // Drop down
+        Console.WriteLine("---------------"); // Drop down
         foreach (var item in GameBoard[2])
         {
-            Console.Write("| Bot |");
+            Console.Write("|   |");
         }
         Console.WriteLine();
-        Console.WriteLine("---------------------");
+        Console.WriteLine("---------------");
     }
 }
