@@ -21,12 +21,14 @@ public class Board
         {
             Console.Write("| Top |");
         }
-        Console.WriteLine(); // Drop down
+        Console.WriteLine();
+        Console.WriteLine("---------------------"); // Drop down
         foreach (var item in GameBoard[1])
         {
             Console.Write("| Mid |");
         }
-        Console.WriteLine(); // Drop down
+        Console.WriteLine();
+        Console.WriteLine("---------------------"); // Drop down
         foreach (var item in GameBoard[2])
         {
             Console.Write("| Bot |");
