@@ -3,7 +3,7 @@ namespace _032_bb_tic_tac_toe.Models;
 public class Board
 {
     // Properties
-    private char[][] GameBoard { get; set; } = new char[3][];
+    public char[][] GameBoard { get; set; } = new char[3][];
 
     public Board()
     {
