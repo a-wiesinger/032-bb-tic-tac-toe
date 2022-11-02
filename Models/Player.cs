@@ -5,7 +5,7 @@ public class Player
     // Properties
     public int Wins { get; set; }
     public int Losses { get; set; }
-    private char Mark { get; set; }
+    public char Mark { get; set; }
 
     public Player(char mark)
     {
