@@ -5,11 +5,7 @@ public class Board
     // Properties
     public char[][] GameBoard { get; set; } = new char[3][];
 
-    public Board()
-    {
-        
-    }
-
+    // Show initial board setup
     public void DisplayGameBoard()
     {
         // Setup each row in the board
@@ -32,6 +28,54 @@ public class Board
         foreach (var item in GameBoard[2])
         {
             Console.Write("|   |");
+        }
+        Console.WriteLine();
+        Console.WriteLine("---------------");
+    }
+    
+    // Called after each piece is played
+    public void DisplayGameBoard(Board board)
+    {
+        // Clear console
+        GameManager.Clear();
+        
+        Console.WriteLine("---------------");
+        foreach (var item in board.GameBoard[0])
+        {
+            if (item == '\0')
+            {
+                Console.Write("|   |");
+            }
+            else
+            {
+                Console.Write($"| {item} |");
+            }
+        }
+        Console.WriteLine();
+        Console.WriteLine("---------------"); // Drop down
+        foreach (var item in GameBoard[1])
+        {
+            if (item == '\0')
+            {
+                Console.Write("|   |");
+            }
+            else
+            {
+                Console.Write($"| {item} |");
+            }
+        }
+        Console.WriteLine();
+        Console.WriteLine("---------------"); // Drop down
+        foreach (var item in GameBoard[2])
+        {
+            if (item == '\0')
+            {
+                Console.Write("|   |");
+            }
+            else
+            {
+                Console.Write($"| {item} |");
+            }
         }
         Console.WriteLine();
         Console.WriteLine("---------------");

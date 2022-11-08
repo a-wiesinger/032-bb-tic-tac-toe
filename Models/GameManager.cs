@@ -4,47 +4,33 @@ public class GameManager
 {
     public void StartGame()
     {
+        // Vars
+        bool gameActive = true;
+        
         // Create players and assign game mark
         Player playerOne = new Player('X');
         Player playerTwo = new Player('O');
+        Player[] players = new Player[] {playerOne, playerTwo};
         
         // Create and display board
         Board board = new Board();
         board.DisplayGameBoard();
         
+        // Create turn instance
+        Turn turn = new Turn();
+
         // Play
-        PlayGame(playerOne, playerTwo, board);
+        PlayGame(players, board, turn, gameActive);
     }
 
-    public void PlayGame(Player playerOne, Player playerTwo, Board board)
+    public void PlayGame(Player[] players, Board board, Turn turn, bool gameActive)
     {
-        // Friendly naming for player mark
-        // u - top left, i - top mid, o - top right
-        // j - mid left, k - mid mid, l - mid right
-        // m - bot left, , - low mid, . - low right
-        // Top Row
-        char topLeft = board.GameBoard[0][0];
-        char topMid = board.GameBoard[0][1];
-        char topRight = board.GameBoard[0][2];
-        // Middle Row
-        char midLeft = board.GameBoard[1][0];
-        char midMid = board.GameBoard[1][1];
-        char midRight = board.GameBoard[1][2];
-        // Bottom Row
-        char botLeft = board.GameBoard[2][0];
-        char botMid = board.GameBoard[2][1];
-        char botRight = board.GameBoard[2][2];
-        
-        // Get player input
-        Console.Write("Please first select the location to make your mark: ");
-        string? markLocation = Console.ReadLine();
+        turn.TakeTurns(players, board, gameActive);
+    }
 
-        // Assign mark to location
-        if (markLocation == "u")
-        {
-            topLeft = playerOne.Mark;
-        }
-        
-        Console.WriteLine(topLeft);
+    // Clean up the console
+    public static void Clear()
+    {
+        Console.Clear();
     }
 }
