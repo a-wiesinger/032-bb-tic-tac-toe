@@ -33,4 +33,11 @@ public class GameManager
     {
         Console.Clear();
     }
+    
+    // Check if win / draw
+    public static bool IsWinOrDraw(Board board)
+    {
+        // TODO - Check against the 8 possible win conditions
+        return false;
+    }
 }

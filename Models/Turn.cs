@@ -26,6 +26,7 @@ public class Turn
                         if (board.GameBoard[0][0] == '\0')
                         {
                             board.GameBoard[0][0] = player.Mark;
+                            GameManager.IsWinOrDraw(board);
                         }
                         else
                         {
@@ -37,6 +38,7 @@ public class Turn
                         if (board.GameBoard[0][1] == '\0')
                         {
                             board.GameBoard[0][1] = player.Mark;
+                            GameManager.IsWinOrDraw(board);
                         }
                         else
                         {
@@ -48,6 +50,7 @@ public class Turn
                         if (board.GameBoard[0][2] == '\0')
                         {
                             board.GameBoard[0][2] = player.Mark;
+                            GameManager.IsWinOrDraw(board);
                         }
                         else
                         {
@@ -60,6 +63,7 @@ public class Turn
                         if (board.GameBoard[1][0] == '\0')
                         {
                             board.GameBoard[1][0] = player.Mark;
+                            GameManager.IsWinOrDraw(board);
                         }
                         else
                         {
@@ -71,6 +75,7 @@ public class Turn
                         if (board.GameBoard[1][1] == '\0')
                         {
                             board.GameBoard[1][1] = player.Mark;
+                            GameManager.IsWinOrDraw(board);
                         }
                         else
                         {
@@ -82,6 +87,7 @@ public class Turn
                         if (board.GameBoard[1][2] == '\0')
                         {
                             board.GameBoard[1][2] = player.Mark;
+                            GameManager.IsWinOrDraw(board);
                         }
                         else
                         {
@@ -94,6 +100,7 @@ public class Turn
                         if (board.GameBoard[2][0] == '\0')
                         {
                             board.GameBoard[2][0] = player.Mark;
+                            GameManager.IsWinOrDraw(board);
                         }
                         else
                         {
@@ -105,6 +112,7 @@ public class Turn
                         if (board.GameBoard[2][1] == '\0')
                         {
                             board.GameBoard[2][1] = player.Mark;
+                            GameManager.IsWinOrDraw(board);
                         }
                         else
                         {
@@ -116,6 +124,7 @@ public class Turn
                         if (board.GameBoard[2][2] == '\0')
                         {
                             board.GameBoard[2][2] = player.Mark;
+                            GameManager.IsWinOrDraw(board);
                         }
                         else
                         {
