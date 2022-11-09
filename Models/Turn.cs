@@ -4,23 +4,11 @@ public class Turn
 {
     public void TakeTurns(Player[] players, Board board, bool gameActive)
     {
-        // Friendly naming for player mark
+        // Grid layout is as follows:
         // u - top left, i - top mid, o - top right
         // j - mid left, k - mid mid, l - mid right
         // m - bot left, , - low mid, . - low right
-        // Top Row
-        char topLeft = board.GameBoard[0][0];
-        char topMid = board.GameBoard[0][1];
-        char topRight = board.GameBoard[0][2];
-        // Middle Row
-        char midLeft = board.GameBoard[1][0];
-        char midMid = board.GameBoard[1][1];
-        char midRight = board.GameBoard[1][2];
-        // Bottom Row
-        char botLeft = board.GameBoard[2][0];
-        char botMid = board.GameBoard[2][1];
-        char botRight = board.GameBoard[2][2];
-        
+
         // Loop through player turns
         while (gameActive)
         {
@@ -35,33 +23,105 @@ public class Turn
                 {
                     // Top Row
                     case "u":
-                        board.GameBoard[0][0] = player.Mark;
+                        if (board.GameBoard[0][0] == '\0')
+                        {
+                            board.GameBoard[0][0] = player.Mark;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try again.");
+                            Console.ReadLine();
+                        }
                         break;
                     case "i":
-                        board.GameBoard[0][1] = player.Mark;
+                        if (board.GameBoard[0][1] == '\0')
+                        {
+                            board.GameBoard[0][1] = player.Mark;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try again.");
+                            Console.ReadLine();
+                        }
                         break;
                     case "o":
-                        board.GameBoard[0][2] = player.Mark;
+                        if (board.GameBoard[0][2] == '\0')
+                        {
+                            board.GameBoard[0][2] = player.Mark;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try again.");
+                            Console.ReadLine();
+                        }
                         break;
                     // Middle Row
                     case "j":
-                        board.GameBoard[1][0] = player.Mark;
+                        if (board.GameBoard[1][0] == '\0')
+                        {
+                            board.GameBoard[1][0] = player.Mark;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try again.");
+                            Console.ReadLine();
+                        }
                         break;
                     case "k":
-                        board.GameBoard[1][1] = player.Mark;
+                        if (board.GameBoard[1][1] == '\0')
+                        {
+                            board.GameBoard[1][1] = player.Mark;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try again.");
+                            Console.ReadLine();
+                        }
                         break;
                     case "l":
-                        board.GameBoard[1][2] = player.Mark;
+                        if (board.GameBoard[1][2] == '\0')
+                        {
+                            board.GameBoard[1][2] = player.Mark;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try again.");
+                            Console.ReadLine();
+                        }
                         break;
                     // Bottom Row
                     case "m":
-                        board.GameBoard[2][0] = player.Mark;
+                        if (board.GameBoard[2][0] == '\0')
+                        {
+                            board.GameBoard[2][0] = player.Mark;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try again.");
+                            Console.ReadLine();
+                        }
                         break;
                     case ",":
-                        board.GameBoard[2][1] = player.Mark;
+                        if (board.GameBoard[2][1] == '\0')
+                        {
+                            board.GameBoard[2][1] = player.Mark;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try again.");
+                            Console.ReadLine();
+                        }
                         break;
                     case ".":
-                        board.GameBoard[2][2] = player.Mark;
+                        if (board.GameBoard[2][2] == '\0')
+                        {
+                            board.GameBoard[2][2] = player.Mark;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Try again.");
+                            Console.ReadLine();
+                        }
                         break;
                     default:
                         return;
