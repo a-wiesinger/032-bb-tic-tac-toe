@@ -35,35 +35,33 @@ public class Turn
                 {
                     // Top Row
                     case "u":
-                        topLeft = player.Mark;
                         board.GameBoard[0][0] = player.Mark;
                         break;
                     case "i":
-                        topMid = player.Mark;
                         board.GameBoard[0][1] = player.Mark;
                         break;
                     case "o":
-                        topRight = player.Mark;
+                        board.GameBoard[0][2] = player.Mark;
                         break;
                     // Middle Row
                     case "j":
-                        midLeft = player.Mark;
+                        board.GameBoard[1][0] = player.Mark;
                         break;
                     case "k":
-                        midMid = player.Mark;
+                        board.GameBoard[1][1] = player.Mark;
                         break;
                     case "l":
-                        midRight = player.Mark;
+                        board.GameBoard[1][2] = player.Mark;
                         break;
                     // Bottom Row
                     case "m":
-                        botLeft = player.Mark;
+                        board.GameBoard[2][0] = player.Mark;
                         break;
                     case ",":
-                        botMid = player.Mark;
+                        board.GameBoard[2][1] = player.Mark;
                         break;
                     case ".":
-                        botRight = player.Mark;
+                        board.GameBoard[2][2] = player.Mark;
                         break;
                     default:
                         return;
