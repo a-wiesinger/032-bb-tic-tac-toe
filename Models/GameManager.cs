@@ -1,7 +1,11 @@
+using System.Transactions;
+
 namespace _032_bb_tic_tac_toe.Models;
 
 public class GameManager
 {
+    private static bool IsGameWon { get; set; }
+    
     public void StartGame()
     {
         // Vars
@@ -37,7 +41,57 @@ public class GameManager
     // Check if win / draw
     public static bool IsWinOrDraw(Board board)
     {
+        char topLeft = board.GameBoard[0][0];
+        char topMid = board.GameBoard[0][1];
+        char topRight = board.GameBoard[0][2];
+
+        char midLeft = board.GameBoard[1][0];
+        char midMid = board.GameBoard[1][1];
+        char midRight = board.GameBoard[1][2];
+
+        char botLeft = board.GameBoard[2][0];
+        char botMid = board.GameBoard[2][0];
+        char botRight = board.GameBoard[2][0];
+        
         // TODO - Check against the 8 possible win conditions
+        // Row checks
+        if (topLeft == topMid && topMid == topRight) // Top
+        {
+            IsGameWon = true;
+        }
+        else if (midLeft == midMid && midMid == midRight) // Mid
+        {
+            IsGameWon = true;
+        }
+        else if (botLeft == botMid && botMid == botRight) // Bottom
+        {
+            IsGameWon = true;
+        }
+        // Column checks
+        else if (topLeft == midLeft && midLeft == botLeft) // Left
+        {
+            IsGameWon = true;
+        }
+        else if (topMid == midMid && midMid == botMid) // Mid
+        {
+            IsGameWon = true;
+        }
+        else if (topRight == midRight && midRight == botRight) // Right
+        {
+            IsGameWon = true;
+        }
+        // Diagnonal checks
+        else if (topLeft == midMid && midMid == botRight)
+        {
+            IsGameWon = true;
+        }
+        else if (topRight == midMid && midMid == botLeft)
+        {
+            IsGameWon = true;
+        }
+
+        if (IsGameWon == true) return true;
+        
         return false;
     }
 }
