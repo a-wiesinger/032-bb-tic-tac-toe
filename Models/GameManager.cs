@@ -54,48 +54,71 @@ public class GameManager
         char botMid = board.GameBoard[2][0];
         char botRight = board.GameBoard[2][0];
         
+        Console.WriteLine(topLeft);
+        Console.WriteLine(topMid);
+        
         // TODO - Check against the 8 possible win conditions
         // Row checks
         if (topLeft == topMid && topMid == topRight) // Top
         {
-            IsGameWon = true;
+            if (topLeft != '\0' && topMid != '\0' && topRight != '\0')
+            {
+                IsGameWon = true;
+            }
         }
         else if (midLeft == midMid && midMid == midRight) // Mid
         {
-            IsGameWon = true;
+            // IsGameWon = true;
         }
         else if (botLeft == botMid && botMid == botRight) // Bottom
         {
-            IsGameWon = true;
+            // IsGameWon = true;
         }
         // Column checks
         else if (topLeft == midLeft && midLeft == botLeft) // Left
         {
-            IsGameWon = true;
+            // IsGameWon = true;
         }
         else if (topMid == midMid && midMid == botMid) // Mid
         {
-            IsGameWon = true;
+            // IsGameWon = true;
         }
         else if (topRight == midRight && midRight == botRight) // Right
         {
-            IsGameWon = true;
+            // IsGameWon = true;
         }
         // Diagnonal checks
         else if (topLeft == midMid && midMid == botRight) // Top left to bottom right
         {
-            IsGameWon = true;
+            // IsGameWon = true;
         }
         else if (topRight == midMid && midMid == botLeft) // Top right to bottom left
         {
-            IsGameWon = true;
+            // IsGameWon = true;
         }
 
+        // Call to complete game as a win
         if (IsGameWon)
         {
             WinGame(board);
         }
-        
+
+        foreach (var row1 in board.GameBoard[0])
+        {
+            foreach (var row2 in board.GameBoard[1])
+            {
+                foreach (var row3 in board.GameBoard[2])
+                {
+                    if (row1 != '\0' && row2 != '\0' && row3 != '\0')
+                    {
+                        if (IsGameWon == false)
+                        {
+                            DrawGame(board);
+                        }
+                    }
+                }
+            }
+        }
         // Loop through all spots
         // if all are not null && IsGameWon == false
         // call Drawstate
@@ -103,10 +126,11 @@ public class GameManager
 
     public static bool WinGame(Board board)
     {
+        Console.WriteLine("You WON!!");
         return false;
     }
 
-    public static bool DrawGame()
+    public static bool DrawGame(Board board)
     {
         return false;
     }

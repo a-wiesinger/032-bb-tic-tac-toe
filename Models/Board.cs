@@ -37,7 +37,7 @@ public class Board
     public void DisplayGameBoard(Board board)
     {
         // Clear console
-        GameManager.Clear();
+        // GameManager.Clear();
         
         Console.WriteLine("---------------");
         foreach (var item in board.GameBoard[0])
