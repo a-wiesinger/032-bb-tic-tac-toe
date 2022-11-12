@@ -5,6 +5,7 @@ namespace _032_bb_tic_tac_toe.Models;
 public class GameManager
 {
     private static bool IsGameWon { get; set; }
+    private static bool IsGameDraw { get; set; }
     
     public void StartGame()
     {
@@ -39,7 +40,7 @@ public class GameManager
     }
     
     // Check if win / draw
-    public static bool IsWinOrDraw(Board board)
+    public static void IsWinOrDraw(Board board)
     {
         char topLeft = board.GameBoard[0][0];
         char topMid = board.GameBoard[0][1];
@@ -81,17 +82,32 @@ public class GameManager
             IsGameWon = true;
         }
         // Diagnonal checks
-        else if (topLeft == midMid && midMid == botRight)
+        else if (topLeft == midMid && midMid == botRight) // Top left to bottom right
         {
             IsGameWon = true;
         }
-        else if (topRight == midMid && midMid == botLeft)
+        else if (topRight == midMid && midMid == botLeft) // Top right to bottom left
         {
             IsGameWon = true;
         }
 
-        if (IsGameWon == true) return true;
+        if (IsGameWon)
+        {
+            WinGame(board);
+        }
         
+        // Loop through all spots
+        // if all are not null && IsGameWon == false
+        // call Drawstate
+    }
+
+    public static bool WinGame(Board board)
+    {
+        return false;
+    }
+
+    public static bool DrawGame()
+    {
         return false;
     }
 }
