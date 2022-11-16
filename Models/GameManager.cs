@@ -51,50 +51,68 @@ public class GameManager
         char midRight = board.GameBoard[1][2];
 
         char botLeft = board.GameBoard[2][0];
-        char botMid = board.GameBoard[2][0];
-        char botRight = board.GameBoard[2][0];
-        
-        Console.WriteLine(topLeft);
-        Console.WriteLine(topMid);
-        
-        // TODO - Check against the 8 possible win conditions
+        char botMid = board.GameBoard[2][1];
+        char botRight = board.GameBoard[2][2];
+
         // Row checks
-        if (topLeft == topMid && topMid == topRight) // Top
+        if (topLeft != '\0' && topMid != '\0' && topRight != '\0') // Top
         {
-            if (topLeft != '\0' && topMid != '\0' && topRight != '\0')
+            if (topLeft == topMid && topMid == topRight)
             {
                 IsGameWon = true;
             }
         }
-        else if (midLeft == midMid && midMid == midRight) // Mid
+        if (midLeft != '\0' && midMid != '\0' && midRight != '\0') // Mid
         {
-            // IsGameWon = true;
+            if (midLeft == midMid && midMid == midRight)
+            {
+                IsGameWon = true;
+            }
         }
-        else if (botLeft == botMid && botMid == botRight) // Bottom
+        if (botLeft != '\0' && botMid != '\0' && botRight != '\0') // Bottom
         {
-            // IsGameWon = true;
+            if (botLeft == botMid && botMid == botRight)
+            {
+                IsGameWon = true;
+            }
         }
         // Column checks
-        else if (topLeft == midLeft && midLeft == botLeft) // Left
+        if (topLeft != '\0' && midLeft != '\0' && botLeft != '\0') // Left
         {
-            // IsGameWon = true;
+            if (topLeft == midLeft && midLeft == botLeft)
+                
+            {
+                IsGameWon = true;
+            }
         }
-        else if (topMid == midMid && midMid == botMid) // Mid
+        if (topMid != '\0' && midMid != '\0' && botMid != '\0') // Mid
         {
-            // IsGameWon = true;
+            if (topMid == midMid && midMid == botMid)
+            {
+                IsGameWon = true;
+            }
         }
-        else if (topRight == midRight && midRight == botRight) // Right
+        if (topRight == midRight && midRight == botRight) // Right
         {
-            // IsGameWon = true;
+            if (topRight != '\0' && midRight != '\0' && botRight != '\0')
+            {
+                IsGameWon = true;
+            }
         }
         // Diagnonal checks
-        else if (topLeft == midMid && midMid == botRight) // Top left to bottom right
+        if (topLeft != '\0' && midMid != '\0' && botRight != '\0') // Top left to bottom right
         {
-            // IsGameWon = true;
+            if (topLeft == midMid && midMid == botRight)
+            {
+                IsGameWon = true;
+            }
         }
-        else if (topRight == midMid && midMid == botLeft) // Top right to bottom left
+        if (topRight != '\0' && midMid != '\0' && botLeft != '\0') // Top right to bottom left
         {
-            // IsGameWon = true;
+            if (topRight == midMid && midMid == botLeft)
+            {
+                IsGameWon = true;
+            }
         }
 
         // Call to complete game as a win
@@ -102,23 +120,7 @@ public class GameManager
         {
             WinGame(board);
         }
-
-        foreach (var row1 in board.GameBoard[0])
-        {
-            foreach (var row2 in board.GameBoard[1])
-            {
-                foreach (var row3 in board.GameBoard[2])
-                {
-                    if (row1 != '\0' && row2 != '\0' && row3 != '\0')
-                    {
-                        if (IsGameWon == false)
-                        {
-                            DrawGame(board);
-                        }
-                    }
-                }
-            }
-        }
+        
         // Loop through all spots
         // if all are not null && IsGameWon == false
         // call Drawstate
@@ -132,6 +134,7 @@ public class GameManager
 
     public static bool DrawGame(Board board)
     {
+        Console.WriteLine("Draw.");
         return false;
     }
 }
