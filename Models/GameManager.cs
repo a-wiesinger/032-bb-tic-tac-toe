@@ -4,13 +4,14 @@ namespace _032_bb_tic_tac_toe.Models;
 
 public class GameManager
 {
-    private static bool IsGameWon { get; set; }
-    private static bool IsGameDraw { get; set; }
+    public static bool IsGameWon { get; set; }
+    public static bool IsGameDraw { get; set; }
+    public static bool IsGameActive { get; set; } = true;
     
     public void StartGame()
     {
         // Vars
-        bool gameActive = true;
+        // bool gameActive = true;
         
         // Create players and assign game mark
         Player playerOne = new Player('X');
@@ -25,12 +26,12 @@ public class GameManager
         Turn turn = new Turn();
 
         // Play
-        PlayGame(players, board, turn, gameActive);
+        PlayGame(players, board, turn, IsGameActive);
     }
 
     public void PlayGame(Player[] players, Board board, Turn turn, bool gameActive)
     {
-        turn.TakeTurns(players, board, gameActive);
+        turn.TakeTurn(players, board, gameActive);
     }
 
     // Clean up the console
@@ -118,23 +119,21 @@ public class GameManager
         // Call to complete game as a win
         if (IsGameWon)
         {
-            WinGame(board);
+            IsGameActive = false;
         }
-        
-        // Loop through all spots
-        // if all are not null && IsGameWon == false
-        // call Drawstate
+
+        // Check for draw
+        // TODO
     }
 
-    public static bool WinGame(Board board)
+    public static void WinGame()
     {
         Console.WriteLine("You WON!!");
-        return false;
     }
 
-    public static bool DrawGame(Board board)
+    public static void DrawGame()
     {
         Console.WriteLine("Draw.");
-        return false;
+        IsGameActive = false;
     }
 }

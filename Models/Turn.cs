@@ -2,7 +2,7 @@ namespace _032_bb_tic_tac_toe.Models;
 
 public class Turn
 {
-    public void TakeTurns(Player[] players, Board board, bool gameActive)
+    public void TakeTurn(Player[] players, Board board, bool isGameActive)
     {
         // Grid layout is as follows:
         // u - top left, i - top mid, o - top right
@@ -10,12 +10,14 @@ public class Turn
         // m - bot left, , - low mid, . - low right
 
         // Loop through player turns
-        while (gameActive)
+        while (GameManager.IsGameActive)
         {
             foreach (Player player in players)
             {
-                // Get player input
-                Console.Write("Please first select the location to make your mark: ");
+                if (GameManager.IsGameActive)
+                {
+                    // Get player input
+                Console.Write("Please select the location to make your mark: ");
                 string? markLocation = Console.ReadLine();
 
                 // Assign mark to location
@@ -137,7 +139,8 @@ public class Turn
                 }
                 
                 // Update the game board and display
-                board.DisplayGameBoard(board);
+                board.DisplayGameBoard(board, GameManager.IsGameWon, GameManager.IsGameDraw);
+                }
             }
         }
     }
