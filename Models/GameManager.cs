@@ -8,15 +8,17 @@ public class GameManager
     public static bool IsGameDraw { get; set; }
     public static bool IsGameActive { get; set; } = true;
     
+    
+    
     public void StartGame()
     {
         // Vars
         // bool gameActive = true;
         
         // Create players and assign game mark
-        Player playerOne = new Player('X');
-        Player playerTwo = new Player('O');
-        Player[] players = new Player[] {playerOne, playerTwo};
+        Player playerX = new Player('X');
+        Player playerO = new Player('O');
+        Player[] players = new Player[] {playerX, playerO};
         
         // Create and display board
         Board board = new Board();
@@ -55,9 +57,14 @@ public class GameManager
         char botMid = board.GameBoard[2][1];
         char botRight = board.GameBoard[2][2];
 
+        bool isTopRowFull = false;
+        bool isMiddleRowFull = false;
+        bool isBottomRowFull = false;
+
         // Row checks
         if (topLeft != '\0' && topMid != '\0' && topRight != '\0') // Top
         {
+            isTopRowFull = true;
             if (topLeft == topMid && topMid == topRight)
             {
                 IsGameWon = true;
@@ -65,6 +72,7 @@ public class GameManager
         }
         if (midLeft != '\0' && midMid != '\0' && midRight != '\0') // Mid
         {
+            isMiddleRowFull = true;
             if (midLeft == midMid && midMid == midRight)
             {
                 IsGameWon = true;
@@ -72,6 +80,7 @@ public class GameManager
         }
         if (botLeft != '\0' && botMid != '\0' && botRight != '\0') // Bottom
         {
+            isBottomRowFull = true;
             if (botLeft == botMid && botMid == botRight)
             {
                 IsGameWon = true;
@@ -123,17 +132,30 @@ public class GameManager
         }
 
         // Check for draw
-        // TODO
+        if (IsGameWon == false && isTopRowFull && isMiddleRowFull && isBottomRowFull)
+        {
+            IsGameDraw = true;
+            IsGameActive = false;
+        }
     }
 
-    public static void WinGame()
+    public static void WinGame(Player player)
     {
         Console.WriteLine("You WON!!");
+        Console.WriteLine(player.Mark);
+        player.Wins++;
+        if (player.Mark == 'X')
+        {
+            RecordKeeper.PlayerXWins++;
+        }
+        else
+        {
+            RecordKeeper.PlayerOWins++;
+        }
     }
 
     public static void DrawGame()
     {
         Console.WriteLine("Draw.");
-        IsGameActive = false;
     }
 }

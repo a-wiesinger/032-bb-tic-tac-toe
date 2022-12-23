@@ -34,7 +34,7 @@ public class Board
     }
     
     // Called after each piece is played
-    public void DisplayGameBoard(Board board, bool isGameWon, bool isGameDraw)
+    public void DisplayGameBoard(Board board, bool isGameWon, bool isGameDraw, Player player)
     {
         // Clear console
         GameManager.Clear();
@@ -80,7 +80,7 @@ public class Board
         Console.WriteLine();
         Console.WriteLine("---------------");
 
-        if (isGameWon) GameManager.WinGame();
+        if (isGameWon) GameManager.WinGame(player);
         if (isGameDraw) GameManager.DrawGame();
     }
 }
